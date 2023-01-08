@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/count down/count.css" />
+    <title>Count Down</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <h3 class="title">I am Coming</h3>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis
+          explicabo magni nesciunt eius asperiores eveniet earum totam, commodi
+          magnam perferendis dicta architecto praesentium nisi, assumenda
+          aspernatur illo distinctio, officia dolor!
+        </p>
+        <div class="count-down">
+          <div class="box">
+            <h3 id="day">00</h3>
+            <span>day</span>
+          </div>
+          <div class="box">
+            <h3 id="hour">00</h3>
+            <span>hour</span>
+          </div>
+          <div class="box">
+            <h3 id="min">00</h3>
+            <span>minutes</span>
+          </div>
+          <div class="box">
+            <h3 id="sec">00</h3>
+            <span>seconds</span>
+          </div>
+        </div>
+        <a href="#" class="btn">notify me</a>
+      </div>
+      <div class="image">
+        <img src="./Creative thinking.svg" alt="count down" class="img">
+      </div>
+    </div>
+   <script>
+    let countdate = new Date('december 1, 2023 00:00:00').getTime();
+    function countDown(){
+        let now = new Date().getTime();
+        gap = countdate - now;
+
+        let second = 1000;
+        let minute = second * 60;
+        let hour = minute * 60;
+        let day = hour * 24;
+
+        let d = Math.floor(gap/(day));
+        let h = Math.floor((gap % (day)) / (hour));
+        let s = Math.floor((gap % (hour)) / (minute));
+        let m = Math.floor((gap % (minute)) / (second));
+
+        document.getElementById('day').innerText = d;
+        document.getElementById('hour').innerText = h;
+        document.getElementById('min').innerText = s;
+        document.getElementById('sec').innerText = m;
+
+    }
+
+    setInterval(function(){
+        countDown();
+    },1000)
+   </script>
+  </body>
+</html>
